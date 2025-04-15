@@ -10,13 +10,21 @@ find_package(LLVM CONFIG REQUIRED)
 
 include_directories(src/parser/generated)
 include_directories(${LLVM_INCLUDE_DIRS})
-include_directories(src/compiler)
 
 separate_arguments(LLVM_DEFINITIONS_LIST NATIVE_COMMAND ${LLVM_DEFINITIONS})
 add_definitions(${LLVM_DEFINITIONS_LIST})
 
-#add_executable()
+add_executable(hcc
+        src/parser/generated/HCLexer.h
+        src/parser/generated/HCLexer.cpp
+        src/parser/generated/HCParser.h
+        src/parser/generated/HCParser.cpp
+        src/parser/generated/HCParserBaseVisitor.h
+        src/parser/generated/HCParserBaseVisitor.cpp
+        src/parser/generated/HCParserVisitor.h
+        src/parser/generated/HCParserVisitor.cpp
+)
 
-#target_link_libraries( PRIVATE antlr4_shared)
+target_link_libraries(hcc PRIVATE antlr4_shared)
 llvm_map_components_to_libnames(llvm_libs support core irreader)
-#target_link_libraries( PRIVATE ${llvm_libs})
+target_link_libraries(hcc PRIVATE ${llvm_libs})
