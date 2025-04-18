@@ -5,7 +5,6 @@ parser grammar HCParser;
 
 options {
     tokenVocab = HCLexer;
-    language = Cpp;
 }
 
 program

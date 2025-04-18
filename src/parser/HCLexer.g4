@@ -2,10 +2,6 @@
 
 lexer grammar HCLexer;
 
-options {
-    language = Cpp;
-}
-
 channels {
     ERROR
 }

@@ -1,3 +1,2 @@
-/cmake-build-debug/
-/src/parser/generated
-/build
+/.cache/
+/build/
